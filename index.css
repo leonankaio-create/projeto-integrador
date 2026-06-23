@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  margin: 10px 0;
+}
+
+.btn {
+  background: white;
+  color: #3b82f6;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e2e8f0;
+}
+
+/* NAV */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #020617;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar a {
+  color: #94a3b8;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #3b82f6;
+}
+
+/* CARDS */
+.card {
+  background: #1e293b;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 900px;
+  transition: 0.3s;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.destaque {
+  border: 2px solid #3b82f6;
+}
+
+h2 {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+}
