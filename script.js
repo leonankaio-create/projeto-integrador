@@ -1,29 +1,108 @@
-function toggle(element) {
-  let content = element.nextElementSibling;
 
-  if (content.style.display === "none") {
-      content.style.display = "block";
-  } else {
-      content.style.display = "none";
+// =====================================
+// ABRIR E FECHAR AS SEÇÕES
+// =====================================
+
+function toggle(element) {
+
+  const content = element.nextElementSibling;
+
+  // Verifica se existe conteúdo na seção
+  if (!content || !content.classList.contains("content")) {
+      return;
   }
+
+  // Alterna entre aberto e fechado
+  const vaiFechar = !content.classList.contains("escondido");
+
+  content.classList.toggle("escondido", vaiFechar);
+
+  // Atualiza o estado de acessibilidade
+  element.setAttribute(
+      "aria-expanded",
+      String(!vaiFechar)
+  );
 }
 
-/* ANIMAÇÃO AO ROLAR */
-window.addEventListener("scroll", () => {
+
+// =====================================
+// FUNCIONAMENTO PELO TECLADO
+// =====================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const titulos = document.querySelectorAll(
+      ".card h2[role='button']"
+  );
+
+  titulos.forEach(function (titulo) {
+
+      titulo.addEventListener("keydown", function (event) {
+
+          if (event.key === "Enter" || event.key === " ") {
+
+              event.preventDefault();
+
+              toggle(titulo);
+
+          }
+
+      });
+
+  });
+
+
+  // =====================================
+  // ANIMAÇÕES DOS CARTÕES
+  // =====================================
+
   const cards = document.querySelectorAll(".card");
 
-  cards.forEach(card => {
-      const top = card.getBoundingClientRect().top;
-      if (top < window.innerHeight - 50) {
-          card.style.opacity = 1;
-          card.style.transform = "translateY(0)";
-      }
-  });
-});
+  // Verifica se o navegador suporta IntersectionObserver
+  if ("IntersectionObserver" in window) {
 
-/* estado inicial */
-document.querySelectorAll(".card").forEach(card => {
-  card.style.opacity = 0;
-  card.style.transform = "translateY(50px)";
-  card.style.transition = "0.5s";
+      const observer = new IntersectionObserver(
+
+          function (entries) {
+
+              entries.forEach(function (entry) {
+
+                  if (entry.isIntersecting) {
+
+                      entry.target.classList.add("visivel");
+
+                      observer.unobserve(entry.target);
+
+                  }
+
+              });
+
+          },
+
+          {
+              threshold: 0.1
+          }
+
+      );
+
+      // Aplica a animação em todos os cartões
+      cards.forEach(function (card) {
+
+          card.classList.add("animar");
+
+          observer.observe(card);
+
+      });
+
+  } else {
+
+      // Alternativa para navegadores antigos
+      cards.forEach(function (card) {
+
+          card.classList.add("visivel");
+
+      });
+
+  }
+
 });

@@ -1,92 +1,438 @@
-body {
+
+/* =====================================
+   CONFIGURAÇÕES GERAIS
+===================================== */
+
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-/* HERO */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #EFF8FC;
+  color: #0D1217;
+  line-height: 1.7;
+}
+
+/* =====================================
+ CABEÇALHO
+===================================== */
+
 .hero {
-  height: 100vh;
-  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  min-height: 85vh;
+  background: linear-gradient(
+      135deg,
+      #103452,
+      #2160A8,
+      #83C5E9
+  );
+
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  text-align: center;
+
+  padding: 30px 20px;
+  color: #FFFFFF;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 7px 18px;
+
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 30px;
+
+  font-size: 12px;
+  letter-spacing: 3px;
+
+  margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .hero p {
-  margin: 10px 0;
+  font-size: 1.2rem;
+  margin: 15px 0 30px;
+  color: #FFFFFF;
 }
 
 .btn {
-  background: white;
-  color: #3b82f6;
-  padding: 10px 20px;
-  border-radius: 25px;
+  display: inline-block;
+
+  background: #FFFFFF;
+  color: #2160A8;
+
+  padding: 13px 35px;
+  border-radius: 30px;
+
   text-decoration: none;
+  font-weight: bold;
+
   transition: 0.3s;
 }
 
 .btn:hover {
-  background: #e2e8f0;
+  background: #83C5E9;
+  color: #103452;
+  transform: translateY(-3px);
 }
 
-/* NAV */
+/* =====================================
+ MENU DE NAVEGAÇÃO
+===================================== */
+
 .navbar {
   position: sticky;
   top: 0;
-  background: #020617;
-  padding: 10px;
+  z-index: 1000;
+
+  background: #103452;
+
+  padding: 14px 10px;
   text-align: center;
+
+  border-bottom: 3px solid #2160A8;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.16);
 }
 
 .navbar a {
-  color: #94a3b8;
-  margin: 10px;
+  display: inline-block;
+
+  color: #FFFFFF;
+
+  margin: 5px 10px;
+
   text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: color 0.2s;
 }
 
-.navbar a:hover {
-  color: #3b82f6;
+.navbar a:hover,
+.navbar a:focus {
+  color: #83C5E9;
 }
 
-/* CARDS */
-.card {
-  background: #1e293b;
-  margin: 30px auto;
+/* =====================================
+ CONTEÚDO PRINCIPAL
+===================================== */
+
+main {
   padding: 20px;
-  border-radius: 15px;
-  max-width: 900px;
-  transition: 0.3s;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+
+/* =====================================
+ CARTÕES
+===================================== */
+
+.card {
+  background: #FFFFFF;
+  color: #103452;
+
+  margin: 35px auto;
+  padding: 28px;
+
+  border-radius: 16px;
+
+  max-width: 950px;
+
+  border: 1px solid #D6E5EE;
+
+  box-shadow: 0 8px 25px rgba(16,52,82,0.10);
+
+  transition:
+      border-color 0.3s,
+      box-shadow 0.3s,
+      opacity 0.6s,
+      transform 0.6s;
 }
 
 .card:hover {
-  transform: scale(1.02);
+  border-color: #83C5E9;
+
+  box-shadow: 0 10px 30px rgba(33,96,168,0.15);
 }
+
+.card h2 {
+  color: #2160A8;
+
+  cursor: pointer;
+
+  font-size: 1.4rem;
+
+  margin-bottom: 10px;
+
+  transition: color 0.2s;
+}
+
+.card h2:hover {
+  color: #103452;
+}
+
+.card h2:focus-visible {
+  outline: 2px solid #2160A8;
+  outline-offset: 4px;
+}
+
+.card p {
+  margin: 12px 0;
+  color: #103452;
+}
+
+/* =====================================
+ CONTEÚDO DAS SEÇÕES
+===================================== */
+
+.content {
+  padding-top: 10px;
+}
+
+.content.escondido {
+  display: none;
+}
+
+/* =====================================
+ LISTA DOS 5 PORQUÊS
+===================================== */
+
+.porques {
+  padding-left: 25px;
+}
+
+.porques li {
+  margin: 18px 0;
+  color: #103452;
+}
+
+.porques li > strong:first-child {
+  display: block;
+  color: #2160A8;
+  margin-bottom: 5px;
+}
+
+.causa-raiz {
+  color: #103452 !important;
+}
+
+/* =====================================
+ CARTÃO DE DESTAQUE
+===================================== */
 
 .destaque {
-  border: 2px solid #3b82f6;
+  border: 2px solid #2160A8;
+  background: #F4FAFD;
 }
 
-h2 {
-  cursor: pointer;
+.destaque h2 {
+  color: #2160A8;
 }
 
-img {
+/* =====================================
+ IMAGENS
+===================================== */
+
+.imagem-conteudo {
+  display: block;
+
   width: 100%;
-  border-radius: 10px;
+  height: auto;
+
+  border-radius: 12px;
+  border: 2px solid #D6E5EE;
+
+  margin-top: 10px;
 }
 
-/* FOOTER */
+/* =====================================
+ LINKS DO CANVAS
+===================================== */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.links a {
+  display: inline-block;
+
+  background: #2160A8;
+  color: #FFFFFF;
+
+  padding: 12px 25px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.links a:hover {
+  background: #103452;
+  color: #FFFFFF;
+
+  transform: translateY(-3px);
+}
+
+/* =====================================
+ DIAGRAMA DO BANCO DE DADOS
+===================================== */
+
+.titulo-diagrama {
+  font-weight: 600;
+  color: #2160A8;
+}
+
+.diagrama-container {
+  width: 100%;
+
+  overflow-x: auto;
+
+  background: #FFFFFF;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  margin-top: 15px;
+
+  border: 2px solid #2160A8;
+
+  text-align: center;
+}
+
+.diagrama-img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 5px;
+
+  margin: 0 auto;
+}
+
+/* =====================================
+ RODAPÉ
+===================================== */
+
 footer {
   text-align: center;
-  padding: 20px;
-  background: #020617;
+
+  padding: 35px 20px;
+
+  background: #103452;
+
+  border-top: 3px solid #2160A8;
+
+  color: #FFFFFF;
+}
+
+footer h3 {
+  color: #83C5E9;
+
+  font-size: 1.5rem;
+
+  margin-bottom: 8px;
+}
+
+/* =====================================
+ ANIMAÇÕES DOS CARTÕES
+===================================== */
+
+.card.animar {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.card.animar.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================
+ RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 768px) {
+
+  .hero {
+      min-height: 75vh;
+  }
+
+  .hero p {
+      font-size: 1rem;
+  }
+
+  .navbar {
+      padding: 10px 5px;
+  }
+
+  .navbar a {
+      margin: 5px;
+      font-size: 12px;
+  }
+
+  main {
+      padding: 10px;
+  }
+
+  .card {
+      padding: 20px;
+      margin: 20px auto;
+  }
+
+  .card h2 {
+      font-size: 1.2rem;
+  }
+
+  .links {
+      flex-direction: column;
+  }
+
+  .links a {
+      text-align: center;
+  }
+
+  .diagrama-container {
+      padding: 8px;
+  }
+}
+
+/* =====================================
+ ACESSIBILIDADE
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+  }
+
 }

@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Paleta de Cores | Verbo e Verso</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #EFF8FC;
+            color: #183650;
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .linha {
+            width: 38px;
+            height: 3px;
+            background: #2160A8;
+            margin-bottom: 30px;
+        }
+
+        .paleta {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .cor {
+            text-align: center;
+            min-width: 0;
+        }
+
+        .quadrado {
+            width: 100%;
+            height: 155px;
+            border-radius: 13px;
+            border: 1px solid #D6E5EE;
+        }
+
+        .branco {
+            background: #FFFFFF;
+        }
+
+        .royal {
+            background: #2160A8;
+        }
+
+        .sky {
+            background: #83C5E9;
+        }
+
+        .preto {
+            background: #0D1217;
+        }
+
+        .royal-escuro {
+            background: #103452;
+        }
+
+        .risco {
+            height: 1px;
+            margin: 13px 0;
+            background: #83C5E9;
+        }
+
+        .nome {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            color: #102C46;
+        }
+
+        .codigo {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            color: #60788B;
+            margin-top: 5px;
+        }
+
+        .detalhes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .detalhes span {
+            width: 12px;
+            height: 4px;
+            display: block;
+        }
+
+        .voltar {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 22px;
+
+            background: #2160A8;
+            color: #FFFFFF;
+
+            text-decoration: none;
+            border-radius: 20px;
+
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .voltar:hover {
+            background: #103452;
+        }
+
+        footer {
+            border-top: 1px solid #D6E5EE;
+            padding: 15px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 9px;
+            color: #60788B;
+        }
+
+        @media (max-width: 600px) {
+
+            .paleta {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .quadrado {
+                height: 130px;
+            }
+
+            .container {
+                margin-top: 25px;
+            }
+
+            h1 {
+                font-size: 19px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>PALETA DE CORES</h1>
+
+        <div class="linha"></div>
+
+        <section class="paleta">
+
+            <div class="cor">
+                <div class="quadrado branco"></div>
+                <div class="risco"></div>
+                <p class="nome">Branco</p>
+                <p class="codigo">#FFFFFF</p>
+            </div>
+
+            <div class="cor">
+                <div class="quadrado royal"></div>
+                <div class="risco"></div>
+                <p class="nome">Royal Blue</p>
+                <p class="codigo">#2160A8</p>
+            </div>
+
+            <div class="cor">
+                <div class="quadrado sky"></div>
+                <div class="risco"></div>
+                <p class="nome">Sky Blue</p>
+                <p class="codigo">#83C5E9</p>
+            </div>
+
+            <div class="cor">
+                <div class="quadrado preto"></div>
+                <div class="risco"></div>
+                <p class="nome">Preto</p>
+                <p class="codigo">#0D1217</p>
+            </div>
+
+            <div class="cor">
+                <div class="quadrado royal-escuro"></div>
+                <div class="risco"></div>
+                <p class="nome">Royal Blue escuro</p>
+                <p class="codigo">#103452</p>
+            </div>
+
+        </section>
+
+        <div class="detalhes">
+            <span style="background:#103452"></span>
+            <span style="background:#2160A8"></span>
+            <span style="background:#83C5E9"></span>
+            <span style="background:#FFFFFF"></span>
+            <span style="background:#0D1217"></span>
+        </div>
+
+        <a href="index.html#canvas" class="voltar">
+            ← Voltar ao projeto
+        </a>
+
+    </main>
+
+    <footer>
+        <span>VERBO &amp; VERSO</span>
+        <span>07</span>
+    </footer>
+
+</body>
+
+</html>
